@@ -1,6 +1,4 @@
-<<<<<<< HEAD
-# Rick-Morty-Explorer
-=======
+
 # Rick and Morty Explorer
 
 Welcome to the Rick and Morty Explorer app! This Flutter application allows you to browse characters from the beloved animated series "Rick and Morty". With a focus on Bloc architecture combined with StatefulWidget, beautiful animations, and offline capabilities, this app provides an immersive experience for fans of the show.
