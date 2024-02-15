@@ -1,17 +1,4 @@
 class Character {
-  final int id;
-  final String name;
-  final String statusdeadorlife;
-  final String species;
-  final String type;
-  final String gender;
-  final Location origin;
-  final Location location;
-  final String image;
-  final List<String> episode;
-  final String url;
-  final String created;
-
   Character({
     required this.id,
     required this.name,
@@ -43,12 +30,39 @@ class Character {
       created: json['created'],
     );
   }
+
+  final String created;
+  final List<String> episode;
+  final String gender;
+  final int id;
+  final String image;
+  final Location location;
+  final String name;
+  final Location origin;
+  final String species;
+  final String statusdeadorlife;
+  final String type;
+  final String url;
+
+  int? getEpisodeNumber(int index) {
+    if (index >= 0 && index < episode.length) {
+      final episodeUrl = episode[index];
+      final parts = episodeUrl.split('/');
+      if (parts.isNotEmpty) {
+        return int.tryParse(parts.last);
+      }
+    }
+    return null;
+  }
+
+  static String formatCreatedDate(String dateString) {
+    final dateTime = DateTime.parse(dateString);
+    final formattedDate = '${dateTime.day}-${dateTime.month}-${dateTime.year}';
+    return formattedDate;
+  }
 }
 
 class Location {
-  final String name;
-  final String url;
-
   Location({required this.name, required this.url});
 
   factory Location.fromJson(Map<String, dynamic> json) {
@@ -57,4 +71,7 @@ class Location {
       url: json['url'],
     );
   }
+
+  final String name;
+  final String url;
 }
